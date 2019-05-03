@@ -8,8 +8,7 @@
 
 namespace app\controllers;
 
-use app\services\DirScannerServiceInterface;
-use Psr\Container\ContainerInterface;
+use app\services\DirScanner\DirScannerServiceInterface;
 use Slim\Views\PhpRenderer;
 
 /**
@@ -20,18 +19,15 @@ class MainController
 {
 
     /**
-     * @var ContainerInterface
-     */
-    protected $container;
-
-    /**
      * @var string
      */
     private $imagesDir;
+
     /**
      * @var DirScannerServiceInterface
      */
     private $dirScanner;
+
     /**
      * @var PhpRenderer
      */
@@ -61,4 +57,5 @@ class MainController
             'images' => $images
         ]);
     }
+
 }

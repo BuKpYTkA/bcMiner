@@ -6,7 +6,7 @@
  * Time: 16:08
  */
 
-namespace app\services;
+namespace app\services\DirScanner;
 
 /**
  * Class DirScannerService

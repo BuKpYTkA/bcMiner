@@ -8,23 +8,36 @@
 
 namespace app\controllers;
 
-use Psr\Container\ContainerInterface;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Slim\Views\PhpRenderer;
 
+/**
+ * Class ImageController
+ * @package app\controllers
+ */
 class ImageController
 {
-    /**
-     * @var ContainerInterface
-     */
-    protected $container;
 
     /**
-     * MainController constructor.
-     * @param ContainerInterface $container
+     * @var string
      */
-    public function __construct(ContainerInterface $container) {
-        $this->container = $container;
+    private $imagesFolder;
+
+    /**
+     * @var PhpRenderer
+     */
+    private $view;
+
+    /**
+     * ImageController constructor.
+     * @param string $imagesFolder
+     * @param PhpRenderer $view
+     */
+    public function __construct(string $imagesFolder, PhpRenderer $view)
+    {
+        $this->imagesFolder = $imagesFolder;
+        $this->view = $view;
     }
 
     /**
@@ -34,10 +47,9 @@ class ImageController
      * @return mixed
      */
     public function __invoke(Request $request, Response $response, array $args) {
-        $dir = $this->container->get('imagesFolder');
-        $image = @file_get_contents($dir . $args['url']);
+        $image = @file_get_contents($this->imagesFolder . $args['url']);
         if ($image === false) {
-            return $this->container->get('renderer')->render($response, '404.php');
+            return $this->view->render($response, '404.php');
         }
         $response->write($image);
         return $response->withHeader('Content-Type', FILEINFO_MIME_TYPE);

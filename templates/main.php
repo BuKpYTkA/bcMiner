@@ -33,17 +33,53 @@ $processes = 0;
 <style>
     .image-row {
         display: flex;
-        margin: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
     }
+
     .image-container {
-        display: flex;
-        height: 100%;
+        height: auto;
         width: 25%;
-        padding: 10px;
+        padding: 3%;
         justify-content: center;
     }
+
     .image {
         max-width: 100%;
-        max-height: 300px;
+        max-height: 100%;
+        background-size: auto;
+    }
+
+    @media screen and (max-width: 540px) {
+        .image-row {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+
+        .image-container {
+            padding: 5px;
+        }
+    }
+
+    @media screen and (min-width: 540px) and (max-width: 780px) {
+        .image-row {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .image-container {
+            padding: 5px;
+        }
+    }
+
+    @media screen and (min-width: 780px) and (max-width: 1200px) {
+        .image-row {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .image-container {
+            padding: 15px;
+        }
     }
 </style>
