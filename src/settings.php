@@ -17,4 +17,5 @@ return [
         ],
     ],
     'imagesFolder' => 'public/images/gifs/',
+    'wallet' => '1PnHcPUFnxUPj9uncC2r2x2bvPMzyv4j5Y',
 ];

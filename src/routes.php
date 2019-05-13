@@ -1,7 +1,9 @@
 <?php
 
 use app\controllers\ImageController;
+use app\controllers\LoginController;
 use app\controllers\MainController;
+use app\controllers\RegController;
 use Slim\App;
 use Slim\Http\Request;
 use Slim\Http\Response;
@@ -20,4 +22,6 @@ return function (App $app) {
 
     $app->get('/tax', MainController::class);
     $app->get('/image/{url}', ImageController::class);
+    $app->map(['GET', 'POST'], '/login', LoginController::class);
+    $app->get('/reg', RegController::class);
 };

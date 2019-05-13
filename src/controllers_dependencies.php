@@ -7,7 +7,9 @@
  */
 
 use app\controllers\ImageController;
+use app\controllers\LoginController;
 use app\controllers\MainController;
+use app\controllers\RegController;
 use app\services\DirScanner\DirScannerServiceInterface;
 use Psr\Container\ContainerInterface;
 use Slim\App;
@@ -35,6 +37,27 @@ return function (App $app) {
     $container[ImageController::class] = function (ContainerInterface $container) {
         return new ImageController(
             $container->get('imagesFolder'),
+            $container['renderer']
+        );
+    };
+
+    /**
+     * @param ContainerInterface $container
+     * @return LoginController
+     */
+    $container[LoginController::class] = function (ContainerInterface $container) {
+        return new LoginController(
+            $container['renderer']
+        );
+    };
+
+    /**
+     * @param ContainerInterface $container
+     * @return RegController
+     */
+    $container[RegController::class] = function (ContainerInterface $container) {
+        return new RegController(
+            $container->get('wallet'),
             $container['renderer']
         );
     };
