@@ -22,6 +22,9 @@ $processes = 0;
     <?php endif; ?>
     <div class="image-container">
         <img class="image" src="<?php echo 'image/' . $image ?>" alt="">
+        <div class="layer">
+
+        </div>
     </div>
     <?php if ($processes % 4 === 3) { ?>
         </div>
@@ -42,12 +45,21 @@ $processes = 0;
         width: 25%;
         padding: 3%;
         justify-content: center;
+        position: relative;
     }
 
     .image {
         max-width: 100%;
         max-height: 100%;
         background-size: auto;
+    }
+
+    .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
     }
 
     @media screen and (max-width: 540px) {
