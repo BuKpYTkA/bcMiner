@@ -22,7 +22,7 @@
         <h3>To have access to your account you must activate it by paying
             0.004 BTC</h3>
         <div id="wallet">
-            <label>BTC: <input style="width: 225px" type="text" value="<? echo($wallet) ?>"></label>
+            <label>BTC: <input style="width: 270px" type="text" value="<? echo($wallet) ?>"></label>
             <h4>Required payment time - 1 hour</h4>
             <h5>(if payment status is "success" you are able to <a href="/login">LOGIN</a>)</h5>
         </div>
@@ -40,7 +40,11 @@
 <div style="text-align: center; padding-top: 50px">
     <br>
     <h1>payment status: still in process</h1>
-    <img src="/image/payment.gif" alt="" width="150px">
+    <div style="position: relative">
+        <img src="/image/payment.gif" alt="" width="150px">
+        <div class="layer">
+        </div>
+    </div>
     <br>
     <h3></h3>
 </div>
@@ -53,11 +57,19 @@
 
     #loginInfo {
         padding: 15px;
-        width: 220px;
+        width: 250px;
         display: inline-block;
         border: 1px solid black;
         background-color: rgb(218, 183, 120);
         margin-top: 25px;
         margin-bottom: 10px;
+    }
+
+    .layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 </style>

@@ -22,10 +22,11 @@ $processes = 0;
             <div class="image-row">
         <?php endif; ?>
 
-            <div class="image-container" style="position: relative">
-              <img class="image" src="<?php echo 'image/' . $image ?>" alt="">
-                <div style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(250,251,255,0.24)">
-                    <p>NADPIS</p>
+            <div class="image-container">
+                <div style="position: relative">
+                    <img class="image" src="<?php echo 'image/' . $image ?>" alt="">
+                    <div class="layer">
+                    </div>
                 </div>
             </div>
         <?php if ($processes % 4 === 3) { ?>
@@ -48,6 +49,14 @@ $processes = 0;
         width: 25%;
         padding: 3%;
         justify-content: center;
+    }
+
+    .layer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
     }
 
     .image {
